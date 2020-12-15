@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Employer Relationship</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body ng-app="CRM" ng-controller="MainController">
+    <div class="left">
+      <div id="wrap">
+        <form action="">
+          <input id="search" name="search" type="text" placeholder="Enter employer name">
+          <input id="search_submit" value="Rechercher" type="submit">
+        </form>
+      </div>
+      <div class="companies">
+        <div class="company-preview" ng-repeat="employer in employee" ng-click="employerCardClick(employer)">
+          <h4>{{employer.name}}</h4>
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="controls">
+          <i class="fa fa-plus-square" aria-hidden="true" ng-click="addNewEmployer()"></i>
+          <i class="fa fa-floppy-o" aria-hidden="true" ng-click="saveCurrentEmployer()"></i>
+          <i class="fa fa-trash" aria-hidden="true" ng-click="deleteCurrentEmployer()"></i>
+      </div>
+      <div class="two-col">
+        <div class="input-field">
+          <div class="label">Name</div>
+          <input type="text" id="name" ng-model="currentEmployer.name">
+        </div>
+        <div class="input-field">
+          <div class="label">Status</div>
+          <input type="text" id="status" ng-model="currentEmployer.status">
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="input-field">
+          <div class="label">Contact</div>
+          <input type="text" id="contact_person" ng-model="currentEmployer.contactPerson">
+        </div>
+        <div class="input-field">
+          <div class="label">E-mail</div>
+          <input type="text" id="email" ng-model="currentEmployer.email">
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="input-field">
+          <div class="label">Website</div>
+          <input type="text" id="website" ng-model="currentEmployer.website">
+        </div>
+        <div class="input-field">
+          <div class="label">Phone</div>
+          <input type="text" id="phone" ng-model="currentEmployer.phone">
+        </div>
+      </div>
+      <div class="one-col">
+        <div class="label">Address</div>
+        <input type="text" id="address" ng-model="currentEmployer.address"/>
+      </div>
+      <div class="one-col">
+        <div class="label">Notes</div>
+        <textarea id="notes" ng-model="currentEmployer.notes"></textarea>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
